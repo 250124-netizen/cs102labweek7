@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+bool hasAlternatingBits(int n) {
+    int prev_bit = n % 2; 
+    n /= 2;
+    int curr_bit = n%2;
+
+    while (n > 0) {
+        curr_bit = n % 2;
+        if (curr_bit == prev_bit) {
+            return false;
+        }
+        
+        prev_bit = curr_bit;
+        n /= 2;
+    }
+
+    return true;
+}
+
+int main() {
+    int n;
+    
+    cin >> n;
+        cout << boolalpha << hasAlternatingBits(n) << endl;
+
+    return 0;
+}
