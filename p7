@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int brokenCalc(int startValue, int target) {
+    int operations = 0;
+    
+    while (target > startValue) {
+        if (target % 2 != 0) {
+            target += 1;
+        } else {
+            target /= 2;
+        }
+        operations++;
+    }
+    
+    return operations + (startValue - target);
+}
+
+int main() {
+    int startValue, target;
+    cin >> startValue >> target;
+    cout << brokenCalc(startValue, target) << endl;
+    
+    return 0;
+}
